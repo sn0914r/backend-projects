@@ -29,8 +29,6 @@ export const register = async (email, password, confirmPassword) => {
       }),
     });
 
-    console.log(res.ok);
-
     const data = await res.json();
 
     if (!data.isSuccess) {
