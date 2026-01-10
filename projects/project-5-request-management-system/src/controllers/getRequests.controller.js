@@ -1,27 +1,30 @@
-const AppError = require("../errors/AppError");
-const getAllRecords = require("../services/getAllRecords.service");
-const asyncErrorHandler = require("../utils/asyncErrorHandler");
+const getRequests = require("../services/getRequests.service");
 
-const getRequests = asyncErrorHandler(async (req, res, next) => {
-  const { role, uid } = req["user"];
+/**
+ * Returns a specific user's requests
+ */
+const getRequestsForUserController = async (req, res, next) => {
+  const { uid } = req["user"];
 
-  console.log(role, uid);
-  try {
-    const records =
-      role === "admin" ? await getAllRecords() : await getAllRecords(uid);
+  const requests = await getRequests(uid);
+  res.status(200).json({
+    size: requests.length,
+    requests,
+  });
+};
 
-    res.status(200).json({
-      success: true,
-      data: records,
-      size: records.length,
-    });
-  } catch (error) {
-    if (error instanceof AppError) {
-      return next(error);
-    }
+/**
+ * Returns all requests
+ */
+const getRequestsForAdminController = async (req, res, next) => {
+  const requests = await getRequests();
+  res.status(200).json({
+    size: requests.length,
+    requests,
+  });
+};
 
-    next(new AppError(error.message, 500));
-  }
-});
-
-module.exports = getRequests;
+module.exports = {
+  getRequestsForUserController,
+  getRequestsForAdminController,
+};

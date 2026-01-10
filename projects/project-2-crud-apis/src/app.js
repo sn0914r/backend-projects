@@ -1,21 +1,20 @@
 const express = require("express");
 const cors = require("cors");
 
-const router = require("./routes/crud.router");
-const { GlobalErrorHandler } = require("./middlewares/error.middleware");
+const router = require("./routes/routes");
+const errorHandler = require("./middlewares/error.middleware");
 
 const app = express();
+
 app.use(express.json());
 app.use(cors());
 
-app.use("/crud", router);
+app.use(router);
 
 app.get("/heath", (req, res) => {
-  res.status(200).json({
-    success: true,
-  });
+  res.status(200).send("ok");
 });
 
-app.use(GlobalErrorHandler);
+app.use(errorHandler);
 
 module.exports = app;

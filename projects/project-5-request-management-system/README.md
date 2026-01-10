@@ -1,3 +1,5 @@
+← Back to [All Projects](../../README.md)
+
 # Request Management API
 
 A backend project demonstrating role-based authorization, rate limiting,
@@ -11,9 +13,7 @@ and a real-world request workflow using Firebase Authentication.
 - Express.js
 - Joi
 - express-rate-limit
-- Firebase Admin SDK
-- Firebase Auth
-- Firestore
+- Firebase Admin SDK (Firebase Auth & Firestore)
 
 ---
 
@@ -102,7 +102,6 @@ backend/
  │   ├── middlewares/
  │   ├── routes/
  │   ├── services/
- │   ├── utils/
  │   ├── validations/
  │   ├── app.js
  │   └── server.js

@@ -1,17 +1,16 @@
 const AppError = require("../errors/AppError.error");
 
-const validate =
-  (schema, type = "body") =>
-  (req, res, next) => {
-    const { error } = schema.validate(req[type], {
-      abortEarly: false,
-    });
+const validate = (schema) => (req, res, next) => {
+  const { error, value } = schema.validate(req.body, {
+    abortEarly: false,
+  });
 
-    if (error) {
-      return next(new AppError(`${error.details.map((e) => e.message)}`, 400));
-    }
-
-    next();
-  };
+  if (error) {
+    const errors = error.details.map((e) => e.message).toString();
+    return next(new AppError(errors, 400));
+  }
+  req.body = value;
+  next();
+};
 
 module.exports = validate;

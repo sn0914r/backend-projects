@@ -1,4 +1,4 @@
-const ADMIN = require("firebase-admin");
+const admin = require("firebase-admin");
 
 const serviceAccount = {
   projectId: process.env.FIREBASE_PROJECT_ID,
@@ -6,11 +6,11 @@ const serviceAccount = {
   privateKey: process.env.FIREBASE_PRIVATE_KEY,
 };
 
-ADMIN.initializeApp({
-  credential: ADMIN.credential.cert(serviceAccount),
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
 });
 
-const db = ADMIN.firestore();
-const auth = ADMIN.auth();
+const db = admin.firestore();
+const auth = admin.auth();
 
-module.exports = { ADMIN, db, auth };
+module.exports = { admin, db, auth };

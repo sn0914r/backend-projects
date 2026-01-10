@@ -1,6 +1,8 @@
+← Back to [All Projects](../../README.md)
+
 # Media Upload & Email API
 
-A backend project demonstrating file uploads and email notifications
+A backend project demonstrating file uploads (into local folder) and email notifications
 using a Node.js API, with authentication and metadata storage.
 
 ---
@@ -11,8 +13,7 @@ using a Node.js API, with authentication and metadata storage.
 - Express.js
 - Multer
 - Nodemailer
-- Firebase Admin SDK
-- Firestore
+- Firebase Admin SDK (Firestore)
 
 ---
 
@@ -51,7 +52,8 @@ GET /uploads
 
 ## Environment Variables
 
-PORT = 3000
+```bash
+PORT=
 
 FIREBASE_PROJECT_ID=
 FIREBASE_CLIENT_EMAIL=
@@ -60,6 +62,7 @@ FIRESTORE_COLLECTION=
 
 GMAIL=
 GMAIL_PASSWORD_KEY=
+```
 
 ---
 
@@ -68,8 +71,6 @@ GMAIL_PASSWORD_KEY=
 ```bash
 npm install
 npm start
-
-# NOTE: must install nodemon globally
 ```
 
 ---

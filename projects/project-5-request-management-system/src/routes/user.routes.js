@@ -1,34 +1,26 @@
 const express = require("express");
 
-// MIDDLEWARES
-const verifyAuth = require("../middlewares/verifyAuth.middleware");
-const validate = require("../middlewares/validate.middleware");
-const userLimiter = require("../middlewares/userLimiter.middleware");
-
-// CONTROLLERS
-const addRequest = require("../controllers/addRequest.controller");
-const getRequests = require("../controllers/getRequests.controller");
-
-// SCHEMAS
 const { RequestSchema } = require("../validations/validation.schema");
+
+const validate = require("../middlewares/validate.middleware");
+const rateLimiter = require("../middlewares/rateLimiter.middleware");
+const { verifyAuth, requireUser } = require("../middlewares/auth.middleware");
+
+const addRequestController = require("../controllers/addRequest.controller");
+const {
+  getRequestsForUserController,
+} = require("../controllers/getRequests.controller");
 
 const router = express.Router();
 
 router.post(
   "/requests",
   verifyAuth,
-  userLimiter,
+  requireUser,
+  rateLimiter,
   validate(RequestSchema),
-  addRequest
+  addRequestController
 );
-router.get("/requests", verifyAuth, getRequests);
-
-/**
- * verifyAuth [x]
- * userLimiter [x]
- * validate [x]
- * addRequest [x]
- * getRequests [x]
- */
+router.get("/requests", verifyAuth, requireUser, getRequestsForUserController);
 
 module.exports = router;

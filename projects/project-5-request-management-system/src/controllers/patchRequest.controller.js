@@ -1,16 +1,15 @@
-const patchRecord = require("../services/patchRecord.service");
-const asyncErrorHandler = require("../utils/asyncErrorHandler");
+const patchRequest = require("../services/patchRequest.service");
 
-const patchRequest = asyncErrorHandler(async (req, res, next) => {
+/**
+ * Updates a request
+ */
+const patchRequestController = async (req, res, next) => {
   const { id } = req.params;
   const { status } = req.body;
 
-  const patchedRecord = await patchRecord(id, status);
+  const request = await patchRequest(id, status);
 
-  res.status(200).json({
-    success: true,
-    data: patchedRecord,
-  });
-});
+  res.status(200).json(request);
+};
 
-module.exports = patchRequest;
+module.exports = patchRequestController;

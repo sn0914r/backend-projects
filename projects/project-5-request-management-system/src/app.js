@@ -1,10 +1,10 @@
 const express = require("express");
 const cors = require("cors");
 
-// ROUTES
+const errorHandler = require("./middlewares/error.middleware");
+
 const userRoutes = require("./routes/user.routes");
 const adminRoutes = require("./routes/admin.routes");
-const GlobalErrorHandler = require("./middlewares/globalErrorHandler.middleware");
 
 const app = express();
 
@@ -15,10 +15,9 @@ app.use(userRoutes);
 app.use("/admin", adminRoutes);
 
 app.get("/health", (req, res) => {
-  res.status(200).json({
-    success: true,
-  });
+  res.status(200).send("ok");
 });
 
-app.use(GlobalErrorHandler);
+app.use(errorHandler);
+
 module.exports = app;

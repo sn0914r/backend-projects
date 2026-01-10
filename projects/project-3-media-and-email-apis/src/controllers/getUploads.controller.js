@@ -1,19 +1,10 @@
-const AppError = require("../errors/AppError");
-const { asyncErrorHandler } = require("../middlewares/errors.middleware");
-const getRecords = require("../services/getRecords.services");
+const getUploads = require("../services/getUploads.services");
 
-const getUploads = asyncErrorHandler(async (req, res, next) => {
-  const userId = req.userDetails.uid;
-  console.log(userId)
-  try {
-    const meta = await getRecords(userId);
-    res.status(200).json({
-      success: true,
-      data: meta,
-    });
-  } catch (error) {
-    next(new AppError(error, 500));
-  }
-});
+const getUploadsController = async (req, res) => {
+  const { uid } = req.user;
 
-module.exports = getUploads;
+  const uploads = await getUploads(uid);
+  res.status(200).json(uploads);
+};
+
+module.exports = getUploadsController;
