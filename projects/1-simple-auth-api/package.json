@@ -1,11 +1,11 @@
 {
-  "name": "project-4-admin-roles-management-system",
+  "name": "simple-auth-api-with-firebase",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "dev": "nodemon src/server.js",
-    "start": "node src/server.js"
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
   },
   "keywords": [],
   "author": "",

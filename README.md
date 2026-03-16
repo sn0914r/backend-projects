@@ -1,31 +1,4 @@
-# Node.js Projects
-
-A collection of small Node.js projects built to practice backend concepts,
-APIs, authentication, payments, and real-world patterns.
-
----
-
-## Tech Stack
-
-- Node.js
-- Express
-- MongoDB / Firebase (where applicable)
-- JWT Authentication
-- REST APIs
-
----
-
-## How to Run a Project
-
-```bash
-cd project-folder-name
-npm install
-npm run dev
-```
-
----
-
-## Projects
+## Projects Index
 
 - **Auth-Protected APIs**  
   Firebase authentication & protected routes  
