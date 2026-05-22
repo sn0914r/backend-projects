@@ -1,22 +1,7 @@
-## Projects Index
+# Backend Practice
 
-- **Auth-Protected APIs**  
-  Firebase authentication & protected routes  
-  [View README](./projects/project-1-auth-system/README.md)
+Collection of backend concepts and backend system implementations built using Node.js and TypeScript.
 
-- **CRUD APIs (Firestore + Firebase Auth)**  
-  REST APIs with Firebase authentication  
-  [View README](./projects/project-2-crud-apis/README.md)
+## Topics
 
-- **Media & Email APIs**  
-  File uploads (Multer) & emails (Nodemailer)  
-  [View README](./projects/project-3-media-and-email-apis/README.md)
-
-- **Admin & User Role Management**  
-  Admin can view all users and promote users to admin; users can view only their own profile
-
-  [View README](./projects/project-4-admin-roles-management-system/README.md)
-
-- **Request Management System (Firestore + Firebase Auth)**  
-  Users can create and view their own requests; admins can view all requests and update request status  
-  [View README](./projects/project-5-request-management-system/README.md)
+- [JWT Authentication](./topics/auth-jwt/README.md)
