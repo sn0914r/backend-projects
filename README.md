@@ -5,3 +5,4 @@ Collection of backend concepts and backend system implementations built using No
 ## Topics
 
 - [JWT Authentication](./topics/auth-jwt/README.md)
+- [File Uploads with Multer](./topics/file-uploads-multer/README.md)
